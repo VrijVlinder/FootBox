@@ -13,8 +13,8 @@ Contact Vanilla Forums Inc. at support [at] vanillaforums [dot] com
 
 $PluginInfo['FootBox'] = array(
    'Name'=>'FootBox',
-   'Description' => "This plugin adds content boxes at the foot of the page ",
-   'Version' => '1.0',
+   'Description' => "This plugin adds html content boxes at the foot of the page ",
+   'Version' => '1.1',
    'Author' => "VrijVlinder",
    'AuthorEmail' => 'contact@vrijvlinder.com',
    'AuthorUrl' => "http://www.vrijvlinder.com"
@@ -59,10 +59,15 @@ public function ActivityController_Render_Before($Sender) {
 $Sender->AddJsFile('plugins/FootBox/footbox.js');
 
 }             
-//public function PluginController_Render_Before($Sender) {
+public function PluginController_Render_Before($Sender) {
 //$Sender->AddJsFile('plugins/FootBox/footbox.js');
 
-//}   
+}   
+
+public function EntryController_Render_Before($Sender) {
+//$Sender->AddJsFile('plugins/FootBox/footbox.js');
+
+}             
 
 
 
