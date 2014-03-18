@@ -13,8 +13,8 @@ Contact Vanilla Forums Inc. at support [at] vanillaforums [dot] com
 
 $PluginInfo['FootBox'] = array(
    'Name'=>'FootBox',
-   'Description' => "This plugin adds html content boxes at the foot of the page ",
-   'Version' => '1.1',
+   'Description' => "This plugin adds html content boxes at the foot of the page where you can place ads or extra content of any kind just edit the html file. Adding the link to your custom theme in the html file will make the boxes match your theme.",
+   'Version' => '1.3',
    'Author' => "VrijVlinder",
    'AuthorEmail' => 'contact@vrijvlinder.com',
    'AuthorUrl' => "http://www.vrijvlinder.com"
@@ -34,38 +34,48 @@ class FootBox_Plugin extends Gdn_Plugin {
 		
    }
 
-//comment out any function you do not want the radio to show in
+//comment out or copy any function you do not want or want the footbox to show in
 
 public function DiscussionsController_Render_Before($Sender) {
+if(IsMobile()){
+ return;
+}
+else
+{
 $Sender->AddJsFile('plugins/FootBox/footbox.js');
+$Sender->AddCssFile('plugins/FootBox/footbox.css');
+}
 }
 public function DiscussionController_Render_Before($Sender) {
-$Sender->AddJsFile('plugins/FootBox/footbox.js');
 
 } 
 public function CategoriesController_Render_Before($Sender) {
+if(IsMobile()){
+ return;
+}
+else
+{
 $Sender->AddJsFile('plugins/FootBox/footbox.js');
-
+$Sender->AddCssFile('plugins/FootBox/footbox.css');
+}
 }
 public function CategoryController_Render_Before($Sender) {
-$Sender->AddJsFile('plugins/FootBox/footbox.js');
 
 }
 public function ProfileController_Render_Before($Sender) {
-$Sender->AddJsFile('plugins/FootBox/footbox.js');
 
 }
 public function ActivityController_Render_Before($Sender) {
-$Sender->AddJsFile('plugins/FootBox/footbox.js');
+
 
 }             
 public function PluginController_Render_Before($Sender) {
-//$Sender->AddJsFile('plugins/FootBox/footbox.js');
+
 
 }   
 
 public function EntryController_Render_Before($Sender) {
-//$Sender->AddJsFile('plugins/FootBox/footbox.js');
+
 
 }             
 
