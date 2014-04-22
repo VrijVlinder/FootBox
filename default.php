@@ -13,8 +13,8 @@ Contact Vanilla Forums Inc. at support [at] vanillaforums [dot] com
 
 $PluginInfo['FootBox'] = array(
    'Name'=>'FootBox',
-   'Description' => "This plugin adds html content boxes at the foot of the page where you can place ads or extra content of any kind just edit the html file. Adding the link to your custom theme in the html file will make the boxes match your theme.",
-   'Version' => '1.3',
+   'Description' => "This plugin adds html content boxes at the foot of the page where you can place ads or extra content of any kind just edit the html file. ",
+   'Version' => '1.4',
    'Author' => "VrijVlinder",
    'AuthorEmail' => 'contact@vrijvlinder.com',
    'AuthorUrl' => "http://www.vrijvlinder.com"
@@ -42,8 +42,10 @@ if(IsMobile()){
 }
 else
 {
-$Sender->AddJsFile('plugins/FootBox/footbox.js');
 $Sender->AddCssFile('plugins/FootBox/footbox.css');
+$FootBoxModule = new FootBoxModule($Sender);
+      $Sender->AddModule($FootBoxModule);
+
 }
 }
 public function DiscussionController_Render_Before($Sender) {
@@ -55,8 +57,9 @@ if(IsMobile()){
 }
 else
 {
-$Sender->AddJsFile('plugins/FootBox/footbox.js');
 $Sender->AddCssFile('plugins/FootBox/footbox.css');
+$FootBoxModule = new FootBoxModule($Sender);
+      $Sender->AddModule($FootBoxModule);
 }
 }
 public function CategoryController_Render_Before($Sender) {
